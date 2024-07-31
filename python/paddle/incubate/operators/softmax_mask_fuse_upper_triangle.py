@@ -13,17 +13,13 @@
 # limitations under the License.
 from __future__ import annotations
 
-from typing import TYPE_CHECKING
-
+import paddle
 from paddle import _C_ops
 from paddle.base.layer_helper import LayerHelper
 from paddle.framework import in_dynamic_or_pir_mode
 
-if TYPE_CHECKING:
-    from paddle import Tensor
 
-
-def softmax_mask_fuse_upper_triangle(x: Tensor) -> Tensor:
+def softmax_mask_fuse_upper_triangle(x: paddle.Tensor) -> paddle.Tensor:
     """
     Do a masked softmax on x, which will always mask upper triangle part of x.
 
